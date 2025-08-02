@@ -2,80 +2,6 @@
 
 @section('content')
 
-<style>
-    body {
-        background: #e0e5ec;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
-    .neumorphism {
-        background: #e0e5ec;
-        border-radius: 16px;
-        box-shadow: 8px 8px 16px #babecc,
-                    -8px -8px 16px #ffffff;
-        padding: 20px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .neumorphism-inset {
-        background: #e0e5ec;
-        border-radius: 16px;
-        box-shadow: inset 8px 8px 16px #babecc,
-                    inset -8px -8px 16px #ffffff;
-        padding: 20px;
-    }
-
-    .w-icon svg {
-        stroke: #6b7280;
-    }
-
-    .w-value {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .w-numeric-title {
-        font-size: 0.9rem;
-        color: #666;
-    }
-
-    table {
-        background: #e0e5ec;
-        border-radius: 12px;
-        box-shadow: 8px 8px 16px #babecc,
-                    -8px -8px 16px #ffffff;
-        overflow: hidden;
-    }
-
-    table th, table td {
-        background-color: #e0e5ec;
-        border: none;
-        color: #333;
-    }
-
-    .widget-header h4 {
-        font-weight: bold;
-        color: #333;
-    }
-
-    .alert {
-        border-radius: 12px;
-        box-shadow: 6px 6px 12px #babecc,
-                    -6px -6px 12px #ffffff;
-        background: #ffebeb;
-        color: #b00020;
-    }
-
-    .table th {
-        font-weight: bold;
-    }
-
-    .close span {
-        font-size: 20px;
-    }
-</style>
-
 <div class="layout-px-spacing">
 
     {{-- Notifikasi --}}
@@ -105,19 +31,17 @@
         </div>
     </div>
     @endif
-
     @if (Auth::user()->level == 'Admin')
     <div class="row layout-top-spacing">
 
         <div class="col-lg-6 layout-spacing">
-            <div class="neumorphism">
+            <div class="widget-two">
                 <div class="widget-content">
-                    <div class="w-numeric-value justify-content-start d-flex align-items-center">
+                    <div class="w-numeric-value justify-content-start">
                         <div class="w-icon">
-                            <!-- Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-shopping-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-shopping-cart">
                                 <circle cx="9" cy="21" r="1"></circle>
                                 <circle cx="20" cy="21" r="1"></circle>
                                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -131,16 +55,14 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-6 layout-spacing">
-            <div class="neumorphism">
+            <div class="widget-two">
                 <div class="widget-content">
-                    <div class="w-numeric-value justify-content-start d-flex align-items-center">
+                    <div class="w-numeric-value justify-content-start">
                         <div class="w-icon">
-                            <!-- Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-shopping-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-shopping-cart">
                                 <circle cx="9" cy="21" r="1"></circle>
                                 <circle cx="20" cy="21" r="1"></circle>
                                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -154,16 +76,14 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-6 layout-spacing">
-            <div class="neumorphism">
+            <div class="widget-two">
                 <div class="widget-content">
-                    <div class="w-numeric-value justify-content-start d-flex align-items-center">
+                    <div class="w-numeric-value justify-content-start">
                         <div class="w-icon">
-                            <!-- Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-dollar-sign">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-dollar-sign">
                                 <line x1="12" y1="1" x2="12" y2="23"></line>
                                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                             </svg>
@@ -176,16 +96,14 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-6 layout-spacing">
-            <div class="neumorphism">
+            <div class="widget-two">
                 <div class="widget-content">
-                    <div class="w-numeric-value justify-content-start d-flex align-items-center">
+                    <div class="w-numeric-value justify-content-start">
                         <div class="w-icon">
-                            <!-- Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-dollar-sign">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-dollar-sign">
                                 <line x1="12" y1="1" x2="12" y2="23"></line>
                                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                             </svg>
@@ -203,17 +121,17 @@
 
     <div class="row layout-top-spacing">
         <div class="col-lg-8">
-            <div class="neumorphism mb-4">
+            <div class="statbox widget box box-shadow mb-4">
                 <div class="widget-header">
                     <div class="row">
-                        <div class="col-xl-12">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                             <h4>Obat Expired dalam 30 hari</h4>
                         </div>
                     </div>
                 </div>
                 <div class="widget-content widget-content-area">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped table-bordered">
+                        <table class="table table-hover table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -245,19 +163,18 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-4">
-            <div class="neumorphism">
+            <div class="statbox widget box box-shadow">
                 <div class="widget-header">
                     <div class="row">
-                        <div class="col-xl-12">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                             <h4>5 Obat Terlaris</h4>
                         </div>
                     </div>
                 </div>
                 <div class="widget-content widget-content-area">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped table-bordered">
+                        <table class="table table-hover table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -280,29 +197,48 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="row layout-spacing">
+            <div class="col-lg-12">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                <h4>Chart</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
 </div>
 
 @endsection
-
 @section('scripts')
 <script>
-    $(document).ready(function () {
+    // Munculkan notifikasi otomatis jika ada obat kadaluarsa atau habis
+    $(document).ready(function() {
         @if($expiredMedicines->count() > 0 || $outOfStock->count() > 0)
-        Swal.fire({
-            title: 'Peringatan!',
-            html: `
-                @if($expiredMedicines->count() > 0)
-                    <p>Ada <strong>{{ $expiredMedicines->count() }}</strong> obat yang sudah kadaluarsa.</p>
-                @endif
-                @if($outOfStock->count() > 0)
-                    <p>Ada <strong>{{ $outOfStock->count() }}</strong> obat yang stoknya habis.</p>
-                @endif
-                <p>Silakan cek notifikasi di bagian atas halaman untuk detail lebih lanjut.</p>
-            `,
-            icon: 'warning',
-            confirmButtonText: 'Mengerti',
-            confirmButtonColor: '#e7515a'
-        });
+            // Tampilkan modal notifikasi
+            Swal.fire({
+                title: 'Peringatan!',
+                html: `
+                    @if($expiredMedicines->count() > 0)
+                        <p>Ada <strong>{{ $expiredMedicines->count() }}</strong> obat yang sudah kadaluarsa.</p>
+                    @endif
+                    @if($outOfStock->count() > 0)
+                        <p>Ada <strong>{{ $outOfStock->count() }}</strong> obat yang stoknya habis.</p>
+                    @endif
+                    <p>Silakan cek notifikasi di bagian atas halaman untuk detail lebih lanjut.</p>
+                `,
+                icon: 'warning',
+                confirmButtonText: 'Mengerti',
+                confirmButtonColor: '#e7515a'
+            });
         @endif
     });
 </script>
