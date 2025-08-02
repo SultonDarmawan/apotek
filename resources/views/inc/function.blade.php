@@ -6,10 +6,10 @@ if (!function_exists('setTitle')) :
 
         // echo $page_name;
 
-        $admin_name = '| Apotek - Penjualan Obat FEFO';
+        $admin_name = '| Apotek - Penjualan Obat';
 
         if ($page_name === 'dashboard') :
-            echo 'Apotek Admin - Penjualan Obat FEFO';
+            echo 'Apotek Admin - Penjualan Obat';
 
         elseif ($page_name === 'kategori') :
             echo 'Kategori ' . $admin_name;

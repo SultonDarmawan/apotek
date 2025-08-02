@@ -6,243 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Apotek - Penjualan Obat FEFO</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('pharmacy.png') }}" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: linear-gradient(to right, #3f5efb, #fc466b);
-            font-family: 'Nunito', sans-serif;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
+        * {
+            box-sizing: border-box;
         }
 
-        .form-form-wrap {
-            background: rgba(255, 255, 255, 0.1);
+        body {
+            background: #e0e5ec;
+            font-family: 'Nunito', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            background: #e0e5ec;
             border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
             padding: 40px;
             width: 100%;
             max-width: 400px;
-        }
-
-        .form-content {
             text-align: center;
         }
 
-        .form-content img {
+        .login-card img.logo {
             width: 80px;
             margin-bottom: 20px;
         }
 
-        .form-content h1 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #ffffff;
+        .login-card h1 {
+            font-weight: 700;
+            font-size: 28px;
             margin-bottom: 10px;
+            color: #333;
         }
 
-        .form-content p {
-            color: #e0e0e0;
+        .login-card p {
+            color: #777;
             margin-bottom: 30px;
         }
 
-        .form-control {
-            background-color: rgba(255, 255, 255, 0.2);
+        .input-group-custom {
+            display: flex;
+            align-items: center;
+            background: #e0e5ec;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            box-shadow: inset 5px 5px 10px #c8c9cc,
+                inset -5px -5px 10px #ffffff;
+        }
+
+        .input-group-custom .icon {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-group-custom .icon svg {
+            width: 20px;
+            height: 20px;
+            color: #666;
+        }
+
+        .input-group-custom input {
+            background: none;
             border: none;
-            color: #fff;
-            border-radius: 10px;
-            padding: 12px 15px;
+            outline: none;
+            color: #333;
+            font-size: 14px;
+            width: 100%;
         }
 
-        .form-control::placeholder {
-            color: #d1d5db;
+        .input-group-custom input::placeholder {
+            color: #aaa;
         }
 
-        .form-control:focus {
-            background-color: rgba(255, 255, 255, 0.3);
-            color: #fff;
-            box-shadow: none;
-        }
-
-        .field-wrapper.input {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .field-wrapper svg {
-            position: absolute;
-            top: 50%;
-            left: 15px;
-            transform: translateY(-50%);
-            color: #ccc;
-        }
-
-        .field-wrapper.input input {
-            padding-left: 45px;
-        }
-
-        label {
-            color: #fff;
-            font-weight: 500;
-            float: left;
-        }
-
-        .btn-primary {
+        .btn-login {
             width: 100%;
             padding: 12px;
-            background: #10b981;
+            background: #e0e5ec;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: bold;
-            transition: background 0.3s ease;
+            color: #333;
+            box-shadow: 5px 5px 15px #bebebe,
+                -5px -5px 15px #ffffff;
+            transition: all 0.3s ease;
         }
 
-        .btn-primary:hover {
-            background: #059669;
+        .btn-login:hover {
+            background: #d1d9e6;
         }
 
         .invalid-feedback {
             font-size: 13px;
-            color: #f87171;
-        }
-
-        .feather-eye {
-            cursor: pointer;
-            right: 15px;
-            left: auto;
-        }
-
-        #toggle-password {
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-        }
-
-        .modal-content {
-            border-radius: 15px;
-        }
-
-        .modal-header h5 {
-            font-weight: 600;
-        }
-
-        .modal-footer .btn-primary {
-            background-color: #6366f1;
-            border: none;
+            color: #e74c3c;
+            text-align: left;
+            margin-top: -15px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div class="form-form-wrap">
-        <div class="form-content">
-            <img src="{{ asset('pharmacy.png') }}" alt="Logo">
-            <h1>Sign In</h1>
-            <p>Log in to your account to continue.</p>
 
-            <form method="POST" action="{{ route('login') }}" class="text-left">
-                @csrf
+    <div class="login-card">
+        <img src="{{ asset('pharmacy.png') }}" alt="Logo" class="logo">
+        <h1>Sign In</h1>
+        <p>Log in to your account to continue.</p>
 
-                <div class="form">
-                    <div id="username-field" class="field-wrapper input">
-                        <label for="email">Email</label>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <input id="email" type="email" placeholder="Email"
-                            class="form-control @error('email') is-invalid @enderror" name="email"
-                            required autocomplete="email" autofocus>
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-                    <div id="password-field" class="field-wrapper input">
-                        <label for="password">Password</label>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        <input id="password" type="password" placeholder="Password"
-                            class="form-control @error('password') is-invalid @enderror" name="password"
-                            required autocomplete="current-password">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            id="toggle-password" class="feather feather-eye">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-
-                    <div class="field-wrapper">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </div>
+            <div class="input-group-custom">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"
+                        viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Optional: Forgot Password Modal -->
-    <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="forgotPasswordTitle">Forgot Password?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="modal-text">Relax and try to remember your password.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Arigatou!</button>
-                </div>
+                <input id="email" type="email" name="email" placeholder="Email"
+                    class="@error('email') is-invalid @enderror" required autocomplete="email" autofocus>
             </div>
-        </div>
+            @error('email')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <div class="input-group-custom">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"
+                        viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <input id="password" type="password" name="password" placeholder="Password"
+                    class="@error('password') is-invalid @enderror" required autocomplete="current-password">
+            </div>
+            @error('password')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <button type="submit" class="btn-login">Login</button>
+        </form>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('assets/js/libs/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-
-    <!-- Toggle Password Visibility -->
-    <script>
-        document.getElementById("toggle-password").addEventListener("click", function () {
-            const password = document.getElementById("password");
-            const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
-            this.classList.toggle("feather-eye-off");
-        });
-    </script>
 </body>
 
 </html>
