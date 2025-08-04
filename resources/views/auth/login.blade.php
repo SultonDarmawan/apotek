@@ -4,141 +4,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login | Apotek - Penjualan Obat FEFO</title>
-    <link rel="icon" type="image/x-icon" href="{{asset('pharmacy.png')}}"/>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-
-    <link href="{{asset('assets/css/main.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/authentication/form-2.css')}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/forms/theme-checkbox-radio.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/forms/switches.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('pharmacy.png') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .form-form .form-form-wrap form .field-wrapper svg.feather-eye {
-            top: 46px;
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+            background: #e0e5ec;
+            font-family: 'Nunito', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            background: #e0e5ec;
+            border-radius: 20px;
+            box-shadow: 20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-card img.logo {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .login-card h1 {
+            font-weight: 700;
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .login-card p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .input-group-custom {
+            display: flex;
+            align-items: center;
+            background: #e0e5ec;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            box-shadow: inset 5px 5px 10px #c8c9cc,
+                inset -5px -5px 10px #ffffff;
+        }
+
+        .input-group-custom .icon {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-group-custom .icon svg {
+            width: 20px;
+            height: 20px;
+            color: #666;
+        }
+
+        .input-group-custom input {
+            background: none;
+            border: none;
+            outline: none;
+            color: #333;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .input-group-custom input::placeholder {
+            color: #aaa;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: #e0e5ec;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 5px 5px 15px #bebebe,
+                -5px -5px 15px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #d1d9e6;
+        }
+
+        .invalid-feedback {
+            font-size: 13px;
+            color: #e74c3c;
+            text-align: left;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="form-container outer">
-        <div class="form-form">
-            <div class="form-form-wrap">
-                <div class="form-container">
-                    <div class="form-content">
+    <div class="login-card">
+        <img src="{{ asset('pharmacy.png') }}" alt="Logo" class="logo">
+        <h1>Sign In</h1>
 
-                        <h1 class="">Sign In</h1>
-                        <p class="">Log in to your account to continue.</p>
-
-                        <form method="POST" action="{{ route('login') }}" class="text-left">
-
-                            @csrf
-
-                            <div class="form">
-
-                                <div id="username-field" class="field-wrapper input">
-                                    <label for="username">Email</label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-user">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <input id="email" type="email" placeholder="Email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email" required
-                                        autocomplete="email" autofocus>
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-
-                                </div>
-
-                                <div id="password-field" class="field-wrapper input mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="password">PASSWORD</label>
-                                       <!--  <a href="#" class="forgot-pass-link" data-toggle="modal"
-                                            data-target="#forgotPassword">Forgot Password?</a> -->
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-lock">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                    </svg>
-                                    <input id="password" name="password" type="password" placeholder="Password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" id="toggle-password" class="feather feather-eye">
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                        <circle cx="12" cy="12" r="3"></circle>
-                                    </svg>
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="d-sm-flex justify-content-between">
-                                    <div class="field-wrapper">
-                                        <button type="submit" class="btn btn-primary"
-                                            value="">{{ __('Login') }}</button>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="division">
-                                    <span><a href="#" class="text-primary" data-toggle="modal" data-target="#numbaOne">Numba One</a></span>
-                                </div> -->
-
-                            </div>
-                        </form>
-
-                    </div>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="input-group-custom">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"
+                        viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </div>
+                <input id="email" type="email" name="email" placeholder="Email"
+                    class="@error('email') is-invalid @enderror" required autocomplete="email" autofocus>
             </div>
-        </div>
+            @error('email')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <div class="input-group-custom">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"
+                        viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <input id="password" type="password" name="password" placeholder="Password"
+                    class="@error('password') is-invalid @enderror" required autocomplete="current-password">
+            </div>
+            @error('password')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <button type="submit" class="btn-login">Login</button>
+        </form>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="forgotPasswordTitle">Forgot Password?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="modal-text">Relax and try to remember your password.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                        aria-label="Close">Arigatou!</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script src="{{asset('assets/js/libs/jquery-3.1.1.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/authentication/form-2.js')}}"></script>
 </body>
 
 </html>
