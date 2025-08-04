@@ -33,6 +33,7 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 12px;
+    background: #e0e0e0;
     box-shadow:
       3px 3px 6px #bebebe,
       -3px -3px 6px #ffffff;
